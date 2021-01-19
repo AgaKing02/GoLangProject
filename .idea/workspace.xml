@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9779331-2ada-4454-9029-bda5d1e3493c" name="Default Changelist" comment="handlers.go&#10;Home">
+    <list default="true" id="c9779331-2ada-4454-9029-bda5d1e3493c" name="Default Changelist" comment="models.go&#10;ExampleTransaction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/web/handlers.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/web/handlers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/models/models.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +112,7 @@
     <MESSAGE value="handlers.go&#10;showSnippet" />
     <MESSAGE value="handlers.go&#10;GetLatest" />
     <MESSAGE value="handlers.go&#10;Home" />
-    <option name="LAST_COMMIT_MESSAGE" value="handlers.go&#10;Home" />
+    <MESSAGE value="models.go&#10;ExampleTransaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="models.go&#10;ExampleTransaction" />
   </component>
 </project>
