@@ -2,9 +2,9 @@ package main
 
 import (
 	"awesomeProject/pkg/models/mysql"
-	"database/sql"
+	"context"
 	"flag"
-	"fmt"
+	"github.com/jackc/pgx/pgxpool"
 	_ "github.com/lib/pq" // here
 	"log"
 	"net/http"
@@ -17,42 +17,29 @@ type application struct {
 	snippets *mysql.SnippetModel
 }
 
-const (
-	host     = "localhost"
-	port     = 5433
-	user     = "postgres"
-	password = "agahan02"
-	dbname   = "GoLangExamples"
-)
-
 func main() {
-
 	addr := flag.String("addr", ":4000", "HTTP network address")
 	flag.Parse()
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	errorLog := log.New(os.Stderr, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
-	db, err := sql.Open("postgres", psqlInfo)
 
+	pool, err := pgxpool.Connect(context.Background(), "user=postgres password=agahan02 host=localhost port=5433 dbname=GoLangExamples sslmode=disable pool_max_conns=50")
 	if err != nil {
-		errorLog.Fatal(err)
+		log.Fatalf("Unable to connection to database: %v\n", err)
 	}
-	defer db.Close()
+	defer pool.Close()
 
-	// Initialize a mysql.SnippetModel instance and add it to the application
-	// dependencies.
 	app := &application{
-		errorLog: errorLog,
-		infoLog:  infoLog,
-		snippets: &mysql.SnippetModel{DB: db},
+		errorLog,
+		infoLog,
+		&mysql.SnippetModel{Pool: pool},
 	}
 	srv := &http.Server{
 		Addr:     *addr,
 		ErrorLog: errorLog,
-		Handler:  app.routes(),
+		Handler:  app.routes(), // Call the new app.routes() method
 	}
+
 	infoLog.Printf("Starting server on %s", *addr)
 	err = srv.ListenAndServe()
 	errorLog.Fatal(err)

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9779331-2ada-4454-9029-bda5d1e3493c" name="Default Changelist" comment="models.go&#10;ExampleTransaction">
+    <list default="true" id="c9779331-2ada-4454-9029-bda5d1e3493c" name="Default Changelist" comment="Using pgx instead of DB">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/web/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/web/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/models/mysql/snippets.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/models/mysql/snippets.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +116,7 @@
     <MESSAGE value="handlers.go&#10;GetLatest" />
     <MESSAGE value="handlers.go&#10;Home" />
     <MESSAGE value="models.go&#10;ExampleTransaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="models.go&#10;ExampleTransaction" />
+    <MESSAGE value="Using pgx instead of DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Using pgx instead of DB" />
   </component>
 </project>
